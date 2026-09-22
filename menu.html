@@ -11,9 +11,17 @@
 
         <span class="menu-divider"></span>
 
+        <!-- TOGGLE MÓVIL: checkbox + label, 100% CSS, sin JavaScript -->
+
+        <input type="checkbox" id="menuCheck" class="menu-check">
+
+        <label for="menuCheck" class="menu-toggle" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </label>
+
         <!-- CONTENIDO DEL MENÚ -->
 
-        <div class="menu-contenido" id="menuContenido">
+        <div class="menu-contenido">
 
             <a href="index.html" class="menu-link">
                 <span class="menu-ico">🏠</span>
@@ -22,13 +30,13 @@
 
             <!-- CCSS I -->
 
-            <div class="menu-dropdown">
+            <details class="menu-dropdown">
 
-                <button class="dropdown-btn" type="button">
+                <summary class="dropdown-btn">
                     <span class="menu-ico">📘</span>
                     <span class="menu-txt">CCSS I</span>
                     <span class="dropdown-caret">▾</span>
-                </button>
+                </summary>
 
                 <div class="dropdown-content">
                     <span class="dropdown-title">CCSS I · Temas</span>
@@ -44,17 +52,17 @@
                     <a href="ccss1/tema10.html">Tema 10</a>
                 </div>
 
-            </div>
+            </details>
 
             <!-- CCSS II -->
 
-            <div class="menu-dropdown">
+            <details class="menu-dropdown">
 
-                <button class="dropdown-btn" type="button">
+                <summary class="dropdown-btn">
                     <span class="menu-ico">📕</span>
                     <span class="menu-txt">CCSS II</span>
                     <span class="dropdown-caret">▾</span>
-                </button>
+                </summary>
 
                 <div class="dropdown-content">
                     <span class="dropdown-title">CCSS II · Temas</span>
@@ -67,7 +75,7 @@
                     <a href="ccss2/tema7.html" style="display: none;">Tema 7</a>
                 </div>
 
-            </div>
+            </details>
 
             <a href="https://accounts.google.com/AccountChooser?continue=https://script.google.com/a/macros/g.educaand.es/s/AKfycbxHgTgZREPTg4a2gfi1Yx1B_kc4OnKDFsuaprH3JRdDZoyebyEu9oWwpw2aquCw6zf76Q/exec" target="_blank" class="menu-link">
                 <span class="menu-ico">📤</span>
@@ -96,72 +104,32 @@
 
         </div>
 
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú">
-            <span></span><span></span><span></span>
-        </button>
-
     </div>
 
 </nav>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+/* Mejora opcional: cierra un desplegable de temas cuando se abre
+   otro, y al pulsar fuera. El menú funciona igual sin este script,
+   ya que se apoya en <details> nativo y un checkbox en CSS puro. */
+document.addEventListener("click", (e) => {
 
-    const desplegables = document.querySelectorAll(".menu-dropdown");
-
-    desplegables.forEach(dropdown => {
-
-        const boton = dropdown.querySelector(".dropdown-btn");
-
-        if (!boton) return;
-
-        boton.addEventListener("click", (e) => {
-
-            e.stopPropagation();
-
-            desplegables.forEach(otro => {
-                if (otro !== dropdown) {
-                    otro.classList.remove("abierto");
-                }
-            });
-
-            dropdown.classList.toggle("abierto");
-
-        });
-
+    document.querySelectorAll(".menu-dropdown[open]").forEach(d => {
+        if (!d.contains(e.target)) d.removeAttribute("open");
     });
 
-    document.addEventListener("click", (e) => {
-
-        if (!e.target.closest(".menu-dropdown")) {
-
-            desplegables.forEach(dropdown => {
-                dropdown.classList.remove("abierto");
-            });
-
-        }
-
-    });
-
-    const toggle = document.getElementById("menuToggle");
-    const contenido = document.getElementById("menuContenido");
-
-    if (toggle && contenido) {
-
-        toggle.addEventListener("click", (e) => {
-            e.stopPropagation();
-            contenido.classList.toggle("abierto");
-            toggle.classList.toggle("activo");
-        });
-
-        document.addEventListener("click", (e) => {
-            if (!e.target.closest(".menu-inner")) {
-                contenido.classList.remove("abierto");
-                toggle.classList.remove("activo");
-            }
-        });
-
+    if (!e.target.closest(".menu-inner")) {
+        const check = document.getElementById("menuCheck");
+        if (check) check.checked = false;
     }
 
+});
+
+document.querySelectorAll(".menu-dropdown > summary").forEach(s => {
+    s.addEventListener("click", () => {
+        document.querySelectorAll(".menu-dropdown[open]").forEach(d => {
+            if (d !== s.parentElement) d.removeAttribute("open");
+        });
+    });
 });
 </script>
