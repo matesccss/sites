@@ -520,7 +520,7 @@
             border-radius: 18px;
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             font-size: 30px;
-            box-shadow: 4px 4px 0 var(--ink);
+            box-shadow: 0 8px 22px rgba(215,255,63,.15);
         }
 
         .cabecera h1 {
@@ -606,15 +606,15 @@
         }
 
         .tema[open] summary {
-            background: var(--yellow);
-            color: var(--ink);
+            background: rgba(215,255,63,.1);
+            color: var(--lime);
         }
 
         .tema[open] .flecha {
             transform: rotate(180deg);
-            background: var(--blue);
-            border-color: var(--ink);
-            color: white;
+            background: var(--lime);
+            border-color: var(--lime);
+            color: #0A0A09;
         }
 
 
@@ -654,16 +654,16 @@
 
         /* EXAMEN */
         .recurso.examen {
-            background: #EEF0FF;
+            background: rgba(92,141,255,.08);
             border-color: var(--blue);
-            color: var(--blue-dark);
+            color: #9DB8FF;
         }
 
         /* SOLUCIÓN */
         .recurso.solucion {
-            background: #E9F9F1;
+            background: rgba(61,220,132,.08);
             border-color: var(--green);
-            color: #0F7A54;
+            color: #7CE8AC;
         }
 
         .recurso:hover {
@@ -671,8 +671,8 @@
             box-shadow: 0 10px 24px -8px rgba(0,0,0,.5);
         }
 
-        .recurso.examen:hover { background: #E0E4FF; }
-        .recurso.solucion:hover { background: #D8F3E6; }
+        .recurso.examen:hover { background: rgba(92,141,255,.16); }
+        .recurso.solucion:hover { background: rgba(61,220,132,.16); }
 
         /* Icono */
         .recurso-icono {
@@ -688,8 +688,8 @@
             border: 2px solid var(--ink);
         }
 
-        .examen .recurso-icono { background: #D8DDFF; }
-        .solucion .recurso-icono { background: #CFF3E1; }
+        .examen .recurso-icono { background: rgba(92,141,255,.18); }
+        .solucion .recurso-icono { background: rgba(61,220,132,.18); }
 
         /* Texto */
         .recurso-texto { min-width: 0; display: flex; flex-direction: column; gap: 4px; }

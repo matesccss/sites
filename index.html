@@ -15,7 +15,7 @@
 
     <link rel="manifest" href="manifest.json">
 
-    <meta name="theme-color" content="#FAF6EE">
+    <meta name="theme-color" content="#0A0A09">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -1013,7 +1013,9 @@ document.addEventListener("visibilitychange", () => {
 .modal-ios-fondo {
     position: absolute;
     inset: 0;
-    background: rgba(22, 19, 14, 0.6);
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 /* CAJA */
@@ -1023,11 +1025,11 @@ document.addEventListener("visibilitychange", () => {
     width: 100%;
     max-width: 420px;
     padding: 32px 28px 28px;
-    border-radius: 22px;
-    background: #FFFFFF;
-    border: 3px solid #16130E;
-    box-shadow: 6px 6px 0 #16130E;
-    color: #16130E;
+    border-radius: 20px;
+    background: #16160F;
+    border: 1px solid rgba(244,243,236,.14);
+    box-shadow: 0 30px 70px rgba(0,0,0,.6);
+    color: #F4F3EC;
     animation: aparecer-ios 0.25s ease-out;
 }
 
@@ -1044,10 +1046,10 @@ document.addEventListener("visibilitychange", () => {
     right: 14px;
     width: 32px;
     height: 32px;
-    border: 2px solid #16130E;
+    border: 1px solid rgba(244,243,236,.14);
     border-radius: 50%;
-    background: #FAF6EE;
-    color: #16130E;
+    background: #1E1E17;
+    color: #F4F3EC;
     font-size: 22px;
     line-height: 1;
     cursor: pointer;
@@ -1056,14 +1058,15 @@ document.addEventListener("visibilitychange", () => {
 /* ICONO */
 
 .modal-ios-icono {
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
     margin: 0 auto 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 14px;
-    background: #2A4DFF;
+    background: rgba(215,255,63,.1);
+    border: 1px solid rgba(215,255,63,.3);
     font-size: 26px;
 }
 
@@ -1074,13 +1077,13 @@ document.addEventListener("visibilitychange", () => {
     text-align: center;
     font-size: 1.4rem;
     font-family: 'Space Grotesk', sans-serif;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .modal-ios-intro {
     margin: 8px 0 25px;
     text-align: center;
-    color: #4A4438;
+    color: #B7B6A9;
     font-size: 0.9rem;
     line-height: 1.5;
 }
@@ -1098,24 +1101,23 @@ document.addEventListener("visibilitychange", () => {
     align-items: flex-start;
     gap: 13px;
     padding: 12px;
-    border-radius: 14px;
-    background: #FAF6EE;
-    border: 2px solid #16130E;
+    border-radius: 13px;
+    background: #1E1E17;
+    border: 1px solid rgba(244,243,236,.1);
 }
 
 .modal-ios-numero {
     flex-shrink: 0;
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: #FFC933;
-    border: 2px solid #16130E;
-    color: #16130E;
+    background: #D7FF3F;
+    color: #0A0A09;
     font-weight: 800;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .modal-ios-texto {
@@ -1126,10 +1128,11 @@ document.addEventListener("visibilitychange", () => {
 
 .modal-ios-texto strong {
     font-size: 0.9rem;
+    color: #F4F3EC;
 }
 
 .modal-ios-texto span {
-    color: #4A4438;
+    color: #93927F;
     font-size: 0.78rem;
     line-height: 1.45;
 }
@@ -1140,20 +1143,18 @@ document.addEventListener("visibilitychange", () => {
     width: 100%;
     margin-top: 22px;
     padding: 13px;
-    border: 2.5px solid #16130E;
-    border-radius: 13px;
-    background: #2E4BFF;
-    color: white;
+    border: none;
+    border-radius: 12px;
+    background: #D7FF3F;
+    color: #0A0A09;
     font-size: 0.92rem;
     font-weight: 800;
     cursor: pointer;
-    box-shadow: 4px 4px 0 #16130E;
-    transition: transform .15s ease, box-shadow .15s ease;
+    transition: filter .15s ease;
 }
 
 .modal-ios-ok:hover {
-    transform: translate(-2px,-2px);
-    box-shadow: 6px 6px 0 #16130E;
+    filter: brightness(1.08);
 }
 
 /* MÓVIL */
@@ -1166,8 +1167,7 @@ document.addEventListener("visibilitychange", () => {
 
     .modal-ios-caja {
         padding: 26px 20px 20px;
-        border-radius: 18px;
-        box-shadow: 6px 6px 0 #16130E;
+        border-radius: 16px;
     }
 
 }

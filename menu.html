@@ -11,13 +11,16 @@
 
         <span class="menu-divider"></span>
 
-        <!-- TOGGLE MÓVIL: checkbox + label, 100% CSS, sin JavaScript -->
+        <!-- TOGGLE MÓVIL -->
 
         <input type="checkbox" id="menuCheck" class="menu-check">
 
         <label for="menuCheck" class="menu-toggle" aria-label="Abrir menú">
             <span></span><span></span><span></span>
         </label>
+
+        <!-- FONDO QUE CIERRA AL PULSAR FUERA -->
+        <label for="menuCheck" class="menu-overlay"></label>
 
         <!-- CONTENIDO DEL MENÚ -->
 
@@ -30,13 +33,15 @@
 
             <!-- CCSS I -->
 
-            <details class="menu-dropdown">
+            <div class="menu-dropdown">
 
-                <summary class="dropdown-btn">
+                <input type="checkbox" id="dropCcss1" class="dropdown-check">
+
+                <label for="dropCcss1" class="dropdown-btn">
                     <span class="menu-ico">📘</span>
                     <span class="menu-txt">CCSS I</span>
                     <span class="dropdown-caret">▾</span>
-                </summary>
+                </label>
 
                 <div class="dropdown-content">
                     <span class="dropdown-title">CCSS I · Temas</span>
@@ -52,17 +57,19 @@
                     <a href="ccss1/tema10.html">Tema 10</a>
                 </div>
 
-            </details>
+            </div>
 
             <!-- CCSS II -->
 
-            <details class="menu-dropdown">
+            <div class="menu-dropdown">
 
-                <summary class="dropdown-btn">
+                <input type="checkbox" id="dropCcss2" class="dropdown-check">
+
+                <label for="dropCcss2" class="dropdown-btn">
                     <span class="menu-ico">📕</span>
                     <span class="menu-txt">CCSS II</span>
                     <span class="dropdown-caret">▾</span>
-                </summary>
+                </label>
 
                 <div class="dropdown-content">
                     <span class="dropdown-title">CCSS II · Temas</span>
@@ -75,7 +82,7 @@
                     <a href="ccss2/tema7.html" style="display: none;">Tema 7</a>
                 </div>
 
-            </details>
+            </div>
 
             <a href="https://accounts.google.com/AccountChooser?continue=https://script.google.com/a/macros/g.educaand.es/s/AKfycbxHgTgZREPTg4a2gfi1Yx1B_kc4OnKDFsuaprH3JRdDZoyebyEu9oWwpw2aquCw6zf76Q/exec" target="_blank" class="menu-link">
                 <span class="menu-ico">📤</span>
@@ -107,29 +114,3 @@
     </div>
 
 </nav>
-
-<script>
-/* Mejora opcional: cierra un desplegable de temas cuando se abre
-   otro, y al pulsar fuera. El menú funciona igual sin este script,
-   ya que se apoya en <details> nativo y un checkbox en CSS puro. */
-document.addEventListener("click", (e) => {
-
-    document.querySelectorAll(".menu-dropdown[open]").forEach(d => {
-        if (!d.contains(e.target)) d.removeAttribute("open");
-    });
-
-    if (!e.target.closest(".menu-inner")) {
-        const check = document.getElementById("menuCheck");
-        if (check) check.checked = false;
-    }
-
-});
-
-document.querySelectorAll(".menu-dropdown > summary").forEach(s => {
-    s.addEventListener("click", () => {
-        document.querySelectorAll(".menu-dropdown[open]").forEach(d => {
-            if (d !== s.parentElement) d.removeAttribute("open");
-        });
-    });
-});
-</script>
