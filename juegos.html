@@ -93,7 +93,7 @@
 
             max-width: 650px;
 
-            color: #64748b;
+            color: var(--text-dim);
 
             font-size: 1rem;
 
@@ -140,12 +140,12 @@
 
             border-radius: 24px;
 
-            background: rgba(255,255,255,.92);
+            background: var(--surface);
 
-            border: 1px solid rgba(139,92,246,.15);
+            border: 1px solid rgba(139,92,246,.2);
 
             box-shadow:
-                0 8px 25px rgba(15,23,42,.10);
+                var(--shadow-lg);
 
             overflow: hidden;
 
@@ -216,12 +216,12 @@
             background:
                 linear-gradient(
                     135deg,
-                    #ede9fe,
-                    #fce7f3
+                    rgba(139,92,246,.18),
+                    rgba(236,72,153,.18)
                 );
 
             box-shadow:
-                0 8px 20px rgba(139,92,246,.15);
+                0 8px 20px rgba(139,92,246,.25);
 
             transition:
                 transform .3s ease;
@@ -250,7 +250,7 @@
 
             font-weight: 800;
 
-            color: #1e293b;
+            color: var(--text);
 
         }
 
@@ -267,7 +267,7 @@
 
             min-height: 55px;
 
-            color: #64748b;
+            color: var(--text-dim);
 
             font-size: .95rem;
 
@@ -390,7 +390,7 @@
             transform: rotate(35deg);
 
             background:
-                #64748b;
+                linear-gradient(135deg,#6366f1,#8b5cf6);
 
             color: white;
 
@@ -420,7 +420,7 @@
 
             margin: 0;
 
-            color: #94a3b8;
+            color: var(--text-mute);
 
             font-size: .9rem;
 

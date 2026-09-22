@@ -491,24 +491,13 @@
         =========================== */
 
         .examenes {
-
             width: 100%;
             max-width: 1000px;
-
             margin: 0 auto;
-
             padding: 35px 20px 50px;
-
             box-sizing: border-box;
-
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
-
+            font-family: var(--font-body);
         }
-
 
 
         /* ==========================
@@ -516,69 +505,38 @@
         =========================== */
 
         .cabecera {
-
             text-align: center;
-
             margin: 0 auto 35px;
-
             max-width: 720px;
-
         }
-
 
         .cabecera-icono {
-
             width: 64px;
             height: 64px;
-
             margin: 0 auto 12px;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             border-radius: 18px;
-
-            background: linear-gradient(
-                135deg,
-                #6366f1,
-                #8b5cf6
-            );
-
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
             font-size: 30px;
-
-            box-shadow:
-                0 8px 20px rgba(99,102,241,.25);
-
+            box-shadow: 4px 4px 0 var(--ink);
         }
-
 
         .cabecera h1 {
-
             margin: 0;
-
             font-size: 2rem;
-
-            font-weight: 800;
-
-            color: #1e293b;
-
+            font-weight: 700;
+            font-family: var(--font-display);
+            color: var(--text);
         }
-
 
         .cabecera p {
-
             margin: 12px auto 0;
-
             font-size: 1rem;
-
-            color: #64748b;
-
+            color: var(--text-dim);
             line-height: 1.6;
-
         }
-
 
 
         /* ==========================
@@ -586,40 +544,21 @@
         =========================== */
 
         .tema {
-
             width: 100%;
-
             margin: 0 0 18px;
-
-            background: #ffffff;
-
-            border: 1px solid #e2e8f0;
-
+            background: var(--surface);
+            border: 1px solid var(--border);
             border-radius: 18px;
-
             overflow: hidden;
-
             box-sizing: border-box;
-
-            box-shadow:
-                0 6px 18px rgba(15,23,42,.08);
-
-            transition:
-                border-color .25s ease,
-                box-shadow .25s ease;
-
+            box-shadow: var(--shadow-md);
+            transition: border-color .25s ease, box-shadow .25s ease;
         }
-
 
         .tema:hover {
-
-            border-color: #818cf8;
-
-            box-shadow:
-                0 10px 25px rgba(99,102,241,.14);
-
+            border-color: rgba(129,140,248,.5);
+            box-shadow: var(--shadow-glow);
         }
-
 
 
         /* ==========================
@@ -627,123 +566,56 @@
         =========================== */
 
         .tema summary {
-
             width: 100%;
-
             min-height: 68px;
-
             box-sizing: border-box;
-
             padding: 18px 22px;
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             gap: 20px;
-
             cursor: pointer;
-
             list-style: none;
-
             user-select: none;
-
             font-size: 17px;
-
             font-weight: 700;
-
-            color: #334155;
-
-            background: #ffffff;
-
-            transition:
-                background .25s ease,
-                color .25s ease;
-
+            color: var(--text);
+            background: transparent;
+            transition: background .25s ease, color .25s ease;
         }
 
+        .tema summary::-webkit-details-marker { display: none; }
+        .tema summary::marker { display: none; }
 
-        /* Elimina completamente el triángulo
-           que pone el navegador */
-
-        .tema summary::-webkit-details-marker {
-
-            display: none;
-
-        }
-
-
-        .tema summary::marker {
-
-            display: none;
-
-        }
-
-
-        .tema-titulo {
-
-            flex: 1;
-
-            min-width: 0;
-
-            line-height: 1.4;
-
-        }
-
-
-        /* Flecha propia */
+        .tema-titulo { flex: 1; min-width: 0; line-height: 1.4; }
 
         .flecha {
-
             flex-shrink: 0;
-
             width: 34px;
             height: 34px;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             border-radius: 50%;
-
-            background: #f1f5f9;
-
-            color: #64748b;
-
-            font-size: 20px;
-
+            background: var(--paper-2);
+            border: 2px solid var(--ink);
+            color: var(--ink-soft);
+            font-size: 18px;
             line-height: 1;
-
-            transition:
-                transform .25s ease,
-                background .25s ease,
-                color .25s ease;
-
+            transition: transform .25s ease, background .25s ease, color .25s ease;
         }
-
 
         .tema[open] summary {
-
-            background: #eef2ff;
-
-            color: #4338ca;
-
+            background: var(--yellow);
+            color: var(--ink);
         }
-
 
         .tema[open] .flecha {
-
             transform: rotate(180deg);
-
-            background: #6366f1;
-
+            background: var(--blue);
+            border-color: var(--ink);
             color: white;
-
         }
-
 
 
         /* ==========================
@@ -751,25 +623,15 @@
         =========================== */
 
         .contenido {
-
             width: 100%;
-
             box-sizing: border-box;
-
             padding: 22px;
-
             display: grid;
-
             grid-template-columns: repeat(2, minmax(0, 1fr));
-
             gap: 16px;
-
-            background: #fafbff;
-
-            border-top: 1px solid #e2e8f0;
-
+            background: var(--paper-2);
+            border-top: 2.5px solid var(--ink);
         }
-
 
 
         /* ==========================
@@ -777,156 +639,62 @@
         =========================== */
 
         .recurso {
-
             min-width: 0;
-
             box-sizing: border-box;
-
             display: flex;
-
             align-items: center;
-
             gap: 15px;
-
             min-height: 78px;
-
             padding: 16px 18px;
-
             border-radius: 14px;
-
             text-decoration: none;
-
             border: 1px solid;
-
-            transition:
-                transform .2s ease,
-                box-shadow .2s ease,
-                background .2s ease;
-
+            transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
         }
-
 
         /* EXAMEN */
-
         .recurso.examen {
-
-            background: #ffffff;
-
-            border-color: #c7d2fe;
-
-            color: #3730a3;
-
+            background: #EEF0FF;
+            border-color: var(--blue);
+            color: var(--blue-dark);
         }
-
 
         /* SOLUCIÓN */
-
         .recurso.solucion {
-
-            background: #ffffff;
-
-            border-color: #bbf7d0;
-
-            color: #166534;
-
+            background: #E9F9F1;
+            border-color: var(--green);
+            color: #0F7A54;
         }
-
 
         .recurso:hover {
-
             transform: translateY(-3px);
-
-            box-shadow:
-                0 8px 18px rgba(15,23,42,.10);
-
+            box-shadow: 0 10px 24px -8px rgba(0,0,0,.5);
         }
 
-
-        .recurso.examen:hover {
-
-            background: #eef2ff;
-
-        }
-
-
-        .recurso.solucion:hover {
-
-            background: #f0fdf4;
-
-        }
-
+        .recurso.examen:hover { background: #E0E4FF; }
+        .recurso.solucion:hover { background: #D8F3E6; }
 
         /* Icono */
-
         .recurso-icono {
-
             width: 46px;
             height: 46px;
-
             flex-shrink: 0;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             border-radius: 12px;
-
             font-size: 23px;
-
-            background: #f1f5f9;
-
+            background: var(--paper-2);
+            border: 2px solid var(--ink);
         }
 
-
-        .examen .recurso-icono {
-
-            background: #e0e7ff;
-
-        }
-
-
-        .solucion .recurso-icono {
-
-            background: #dcfce7;
-
-        }
-
+        .examen .recurso-icono { background: #D8DDFF; }
+        .solucion .recurso-icono { background: #CFF3E1; }
 
         /* Texto */
-
-        .recurso-texto {
-
-            min-width: 0;
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 4px;
-
-        }
-
-
-        .recurso-texto strong {
-
-            font-size: 17px;
-
-            font-weight: 800;
-
-        }
-
-
-        .recurso-texto small {
-
-            font-size: 13px;
-
-            color: #64748b;
-
-            line-height: 1.3;
-
-        }
-
+        .recurso-texto { min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+        .recurso-texto strong { font-size: 17px; font-weight: 800; color: var(--text); }
+        .recurso-texto small { font-size: 13px; color: var(--text-dim); line-height: 1.3; }
 
 
         /* ==========================
@@ -934,48 +702,26 @@
         =========================== */
 
         .recurso.bloqueado {
-
             cursor: default;
-
             opacity: .55;
-
-            background: #f1f5f9;
-
-            border-color: #e2e8f0;
-
-            color: #64748b;
-
+            background: var(--paper-2);
+            border-color: var(--ink);
+            color: var(--ink-mute);
             box-shadow: none;
-
         }
-
 
         .recurso.bloqueado:hover {
-
             transform: none;
-
             box-shadow: none;
-
-            background: #f1f5f9;
-
+            background: var(--paper-2);
         }
-
 
         .recurso.bloqueado .recurso-icono {
-
-            background: #e2e8f0;
-
+            background: var(--paper-2);
             filter: grayscale(1);
-
         }
 
-
-        .recurso.bloqueado .recurso-texto small {
-
-            color: #94a3b8;
-
-        }
-
+        .recurso.bloqueado .recurso-texto small { color: var(--text-mute); }
 
 
         /* ==========================
@@ -983,146 +729,24 @@
         =========================== */
 
         @media (max-width: 700px) {
-
-            .examenes {
-
-                padding:
-                    25px
-                    12px
-                    40px;
-
-            }
-
-
-            .cabecera {
-
-                margin-bottom: 25px;
-
-            }
-
-
-            .cabecera-icono {
-
-                width: 54px;
-                height: 54px;
-
-                border-radius: 15px;
-
-                font-size: 25px;
-
-            }
-
-
-            .cabecera h1 {
-
-                font-size: 1.55rem;
-
-            }
-
-
-            .cabecera p {
-
-                font-size: .92rem;
-
-            }
-
-
-            .tema {
-
-                border-radius: 14px;
-
-            }
-
-
-            .tema summary {
-
-                min-height: 60px;
-
-                padding: 15px;
-
-                gap: 12px;
-
-                font-size: 15px;
-
-            }
-
-
-            .flecha {
-
-                width: 30px;
-                height: 30px;
-
-                font-size: 18px;
-
-            }
-
-
-            .contenido {
-
-                grid-template-columns: 1fr;
-
-                gap: 10px;
-
-                padding: 14px;
-
-            }
-
-
-            .recurso {
-
-                min-height: 68px;
-
-                padding: 13px;
-
-                gap: 12px;
-
-            }
-
-
-            .recurso-icono {
-
-                width: 40px;
-                height: 40px;
-
-                font-size: 20px;
-
-                border-radius: 10px;
-
-            }
-
-
-            .recurso-texto strong {
-
-                font-size: 15px;
-
-            }
-
-
-            .recurso-texto small {
-
-                font-size: 12px;
-
-            }
-
+            .examenes { padding: 25px 12px 40px; }
+            .cabecera { margin-bottom: 25px; }
+            .cabecera-icono { width: 54px; height: 54px; border-radius: 15px; font-size: 25px; }
+            .cabecera h1 { font-size: 1.55rem; }
+            .cabecera p { font-size: .92rem; }
+            .tema { border-radius: 14px; }
+            .tema summary { min-height: 60px; padding: 15px; gap: 12px; font-size: 15px; }
+            .flecha { width: 30px; height: 30px; font-size: 18px; }
+            .contenido { grid-template-columns: 1fr; gap: 10px; padding: 14px; }
+            .recurso { min-height: 68px; padding: 13px; gap: 12px; }
+            .recurso-icono { width: 40px; height: 40px; font-size: 20px; border-radius: 10px; }
+            .recurso-texto strong { font-size: 15px; }
+            .recurso-texto small { font-size: 12px; }
         }
 
-
-
         @media (max-width: 480px) {
-
-            .cabecera h1 {
-
-                font-size: 1.4rem;
-
-            }
-
-
-            .tema summary {
-
-                font-size: 14px;
-
-            }
-
+            .cabecera h1 { font-size: 1.4rem; }
+            .tema summary { font-size: 14px; }
         }
 
     </style>

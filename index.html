@@ -15,7 +15,7 @@
 
     <link rel="manifest" href="manifest.json">
 
-    <meta name="theme-color" content="#2563eb">
+    <meta name="theme-color" content="#FAF6EE">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -52,21 +52,37 @@
 
             <div class="hero-content">
 
+                <span class="hero-badge">
+                    <span class="dot"></span>
+                    Bachillerato · Curso 2026-2027
+                </span>
+
                 <h1 class="title-gradient">
                     Matemáticas Aplicadas a las Ciencias Sociales
                 </h1>
 
                 <div class="line"></div>
 
-                <h2>Bachillerato · Curso 2026-2027</h2>
+                <h2>Todo el curso, en un solo lugar</h2>
 
                 <p id="fraseHero"></p>
 
             </div>
 
+            <div class="hero-deco" aria-hidden="true">
+                <span class="hero-deco-ring r1"></span>
+                <span class="hero-deco-ring r2"></span>
+                <span class="hero-symbol s1">∑</span>
+                <span class="hero-symbol s2">π</span>
+                <span class="hero-symbol s3">√x</span>
+                <span class="hero-symbol s4">∞</span>
+                <span class="hero-deco-core">Σ</span>
+            </div>
+
             <div class="accent-line"></div>
 
         </div>
+
 
 
         <!-- ACCESOS RÁPIDOS -->
@@ -989,343 +1005,182 @@ document.addEventListener("visibilitychange", () => {
 ========================================================= */
 
 .modal-ios {
-
     position: fixed;
-
     inset: 0;
-
     z-index: 99999;
-
     display: none;
-
     align-items: center;
-
     justify-content: center;
-
     padding: 20px;
-
 }
-
 
 .modal-ios.activo {
-
     display: flex;
-
 }
-
 
 /* FONDO */
 
 .modal-ios-fondo {
-
     position: absolute;
-
     inset: 0;
-
-    background:
-        rgba(2, 6, 23, 0.72);
-
-    backdrop-filter:
-        blur(8px);
-
-    -webkit-backdrop-filter:
-        blur(8px);
-
+    background: rgba(22, 19, 14, 0.6);
 }
-
 
 /* CAJA */
 
 .modal-ios-caja {
-
     position: relative;
-
     width: 100%;
-
     max-width: 420px;
-
     padding: 32px 28px 28px;
-
-    border-radius: 26px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #f8fafc
-        );
-
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.35);
-
-    color: #0f172a;
-
-    animation:
-        aparecer-ios
-        0.25s
-        ease-out;
-
+    border-radius: 22px;
+    background: #FFFFFF;
+    border: 3px solid #16130E;
+    box-shadow: 9px 9px 0 #16130E;
+    color: #16130E;
+    animation: aparecer-ios 0.25s ease-out;
 }
-
 
 @keyframes aparecer-ios {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(20px)
-            scale(0.96);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
-    }
-
+    from { opacity: 0; transform: translateY(20px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
-
 
 /* CERRAR */
 
 .modal-ios-cerrar {
-
     position: absolute;
-
     top: 12px;
     right: 14px;
-
-    width: 34px;
-    height: 34px;
-
-    border: none;
-
+    width: 32px;
+    height: 32px;
+    border: 2px solid #16130E;
     border-radius: 50%;
-
-    background:
-        #f1f5f9;
-
-    color:
-        #64748b;
-
-    font-size: 25px;
-
+    background: #FAF6EE;
+    color: #16130E;
+    font-size: 22px;
     line-height: 1;
-
     cursor: pointer;
-
 }
-
 
 /* ICONO */
 
 .modal-ios-icono {
-
-    width: 64px;
-    height: 64px;
-
+    width: 62px;
+    height: 62px;
     margin: 0 auto 16px;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
-    border-radius: 18px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #2563eb,
-            #38bdf8
-        );
-
-    font-size: 30px;
-
-    box-shadow:
-        0 10px 25px
-        rgba(37, 99, 235, 0.25);
-
+    border-radius: 16px;
+    background: #2E4BFF;
+    border: 2.5px solid #16130E;
+    transform: rotate(-4deg);
+    font-size: 28px;
+    box-shadow: 4px 4px 0 #16130E;
 }
-
 
 /* TÍTULO */
 
 .modal-ios-caja h2 {
-
     margin: 0;
-
     text-align: center;
-
-    font-size: 1.5rem;
-
+    font-size: 1.4rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
 }
-
 
 .modal-ios-intro {
-
     margin: 8px 0 25px;
-
     text-align: center;
-
-    color: #64748b;
-
+    color: #4A4438;
     font-size: 0.9rem;
-
     line-height: 1.5;
-
 }
-
 
 /* PASOS */
 
 .modal-ios-pasos {
-
     display: flex;
-
     flex-direction: column;
-
-    gap: 14px;
-
+    gap: 12px;
 }
-
 
 .modal-ios-paso {
-
     display: flex;
-
     align-items: flex-start;
-
     gap: 13px;
-
-    padding: 13px;
-
-    border-radius: 16px;
-
-    background:
-        #f8fafc;
-
+    padding: 12px;
+    border-radius: 14px;
+    background: #FAF6EE;
+    border: 2px solid #16130E;
 }
-
 
 .modal-ios-numero {
-
     flex-shrink: 0;
-
-    width: 30px;
-    height: 30px;
-
+    width: 28px;
+    height: 28px;
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     border-radius: 50%;
-
-    background:
-        #2563eb;
-
-    color: white;
-
-    font-weight: 700;
-
+    background: #FFC933;
+    border: 2px solid #16130E;
+    color: #16130E;
+    font-weight: 800;
     font-size: 0.85rem;
-
 }
-
 
 .modal-ios-texto {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 3px;
-
 }
-
 
 .modal-ios-texto strong {
-
     font-size: 0.9rem;
-
 }
-
 
 .modal-ios-texto span {
-
-    color: #64748b;
-
+    color: #4A4438;
     font-size: 0.78rem;
-
     line-height: 1.45;
-
 }
-
 
 /* BOTÓN */
 
 .modal-ios-ok {
-
     width: 100%;
-
-    margin-top: 24px;
-
-    padding: 12px;
-
-    border: none;
-
-    border-radius: 14px;
-
-    background:
-        #2563eb;
-
+    margin-top: 22px;
+    padding: 13px;
+    border: 2.5px solid #16130E;
+    border-radius: 13px;
+    background: #2E4BFF;
     color: white;
-
-    font-size: 0.9rem;
-
-    font-weight: 600;
-
+    font-size: 0.92rem;
+    font-weight: 800;
     cursor: pointer;
-
+    box-shadow: 4px 4px 0 #16130E;
+    transition: transform .15s ease, box-shadow .15s ease;
 }
-
 
 .modal-ios-ok:hover {
-
-    background:
-        #1d4ed8;
-
+    transform: translate(-2px,-2px);
+    box-shadow: 6px 6px 0 #16130E;
 }
-
 
 /* MÓVIL */
 
 @media (max-width: 480px) {
 
     .modal-ios {
-
         padding: 14px;
-
     }
 
-
     .modal-ios-caja {
-
-        padding:
-            28px
-            20px
-            22px;
-
-        border-radius: 23px;
-
+        padding: 26px 20px 20px;
+        border-radius: 18px;
+        box-shadow: 6px 6px 0 #16130E;
     }
 
 }

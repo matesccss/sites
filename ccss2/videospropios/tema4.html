@@ -542,13 +542,13 @@
 
         border-radius: 18px;
 
-        background: #fff;
+        background: var(--surface);
 
         box-shadow:
-            0 4px 14px rgba(0,0,0,0.12);
+            var(--shadow-lg);
 
         border:
-            1px solid rgba(0,177,64,0.18);
+            1px solid rgba(0,177,64,0.28);
 
     }
 
@@ -623,7 +623,7 @@
 
         margin: 15px 0 0;
 
-        color: #64748b;
+        color: var(--text-dim);
 
     }
 
@@ -648,10 +648,12 @@
 
         border-radius: 14px;
 
-        background: #fff;
+        background: var(--surface);
+
+        border: 1px solid var(--border);
 
         box-shadow:
-            0 4px 14px rgba(0,0,0,0.15);
+            var(--shadow-lg);
 
         overflow: hidden;
 
@@ -754,7 +756,7 @@
 
     .video-card {
 
-        background: #f8fafc;
+        background: #FFFFFF;
 
         border-radius: 12px;
 
@@ -765,10 +767,10 @@
         width: 100%;
 
         border:
-            1.5px solid rgba(0,177,64,0.25);
+            1.5px solid rgba(0,177,64,0.3);
 
         box-shadow:
-            0 3px 10px rgba(0,0,0,0.08);
+            0 3px 10px rgba(0,0,0,0.3);
 
         transition:
             transform 0.3s ease,
@@ -853,7 +855,7 @@
 
         font-size: 0.9em;
 
-        color: #64748b;
+        color: var(--text-dim);
 
         margin: 0 0 8px;
 

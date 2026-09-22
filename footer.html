@@ -60,57 +60,24 @@
 <style>
 
 /* =========================================================
-   FOOTER
+   FOOTER — banda de cierre en tinta
 ========================================================= */
 
 .footer {
 
     position: relative;
 
-    margin-top: 45px;
+    margin-top: 50px;
 
-    padding: 30px 35px 18px;
+    padding: 34px 35px 20px;
 
-    background:
-        linear-gradient(
-            180deg,
-            #0f172a 0%,
-            #020617 100%
-        );
+    background: #16130E;
 
-    color: #fff;
+    border-top: 4px solid #16130E;
+
+    color: #FAF6EE;
 
     overflow: hidden;
-
-}
-
-
-/* =========================================================
-   BRILLO SUPERIOR
-========================================================= */
-
-.footer::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: -120px;
-    left: 50%;
-
-    width: 500px;
-    height: 220px;
-
-    transform: translateX(-50%);
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(56, 189, 248, 0.10),
-            transparent 70%
-        );
-
-    pointer-events: none;
 
 }
 
@@ -147,15 +114,15 @@
     left: 0;
     top: -12px;
 
-    font-family: Georgia, serif;
+    font-family: 'Space Grotesk', Georgia, serif;
 
     font-size: 3.5em;
 
     line-height: 1;
 
-    color: #38bdf8;
+    color: #FFC933;
 
-    opacity: 0.35;
+    opacity: 0.9;
 
 }
 
@@ -174,7 +141,7 @@
 
     font-style: italic;
 
-    color: #cbd5e1;
+    color: #E5DFCF;
 
 }
 
@@ -219,17 +186,18 @@
 
     max-width: 1000px;
 
-    height: 1px;
+    height: 2px;
 
-    margin: 18px auto 16px;
+    margin: 20px auto 16px;
 
     background:
-        linear-gradient(
+        repeating-linear-gradient(
             90deg,
-            transparent,
-            rgba(148, 163, 184, 0.25),
-            transparent
+            #FAF6EE 0 8px,
+            transparent 8px 16px
         );
+
+    opacity: .3;
 
 }
 
@@ -272,11 +240,13 @@
 
 .footer-centro-nombre {
 
-    font-size: 0.8em;
+    font-size: 0.82em;
 
-    font-weight: 600;
+    font-weight: 700;
 
-    color: #e2e8f0;
+    font-family: 'Space Grotesk', sans-serif;
+
+    color: #FAF6EE;
 
 }
 
@@ -285,7 +255,7 @@
 
     font-size: 0.68em;
 
-    color: #64748b;
+    color: #A69C82;
 
 }
 
@@ -309,7 +279,7 @@
 
     font-size: 0.68em;
 
-    color: #64748b;
+    color: #A69C82;
 
 }
 
@@ -326,24 +296,24 @@
 
     gap: 6px;
 
-    padding: 6px 12px;
+    padding: 6px 13px;
 
-    border: 1px solid rgba(56, 189, 248, 0.25);
+    border: 2px solid #FFC933;
 
     border-radius: 20px;
 
-    color: #7dd3fc;
+    color: #FFC933;
 
     text-decoration: none;
 
     font-size: 0.68em;
+    font-weight: 700;
 
-    background:
-        rgba(56, 189, 248, 0.05);
+    background: transparent;
 
     transition:
         background 0.2s ease,
-        border-color 0.2s ease,
+        color 0.2s ease,
         transform 0.2s ease;
 
 }
@@ -351,13 +321,11 @@
 
 .footer-app:hover {
 
-    background:
-        rgba(56, 189, 248, 0.12);
+    background: #FFC933;
 
-    border-color:
-        rgba(56, 189, 248, 0.45);
+    color: #16130E;
 
-    transform: translateY(-1px);
+    transform: translate(-1px, -1px);
 
 }
 
@@ -374,7 +342,7 @@
 
     font-size: 0.68em;
 
-    color: #64748b;
+    color: #A69C82;
 
     letter-spacing: 0.6px;
 
@@ -391,7 +359,7 @@
 
     .footer {
 
-        margin-top: 28px;
+        margin-top: 30px;
 
         padding: 25px 18px 15px;
 
@@ -443,14 +411,14 @@
 
     .footer-centro-nombre {
 
-        font-size: 0.68em;
+        font-size: 0.7em;
 
     }
 
 
     .footer-centro-departamento {
 
-        font-size: 0.57em;
+        font-size: 0.58em;
 
     }
 
@@ -471,7 +439,7 @@
 
     .footer-app {
 
-        padding: 5px 9px;
+        padding: 5px 10px;
 
         font-size: 0.58em;
 
@@ -491,4 +459,3 @@
 }
 
 </style>
-
