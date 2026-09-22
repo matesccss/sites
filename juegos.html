@@ -13,600 +13,92 @@
 
     <style>
 
-        /* =========================================================
-           PÁGINA DE JUEGOS
-        ========================================================= */
+        .games-page{ max-width:1180px; margin:0 auto; padding:10px 24px 70px; }
 
-        .games-page {
+        .games-header{ text-align:center; margin:10px auto 44px; }
+        .games-header h1{
+            font-size:clamp(2rem,5vw,3rem);
+            background:var(--grad-main);
+            -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+        }
+        .games-line{
+            width:70px; height:4px; margin:16px auto 18px; border-radius:99px;
+            background:var(--grad-main);
+        }
+        .games-header p{ max-width:560px; margin:0 auto; color:var(--muted); font-size:.98rem; }
 
-            max-width: 1200px;
+        .games-grid{
+            display:grid; grid-template-columns:repeat(2,1fr); gap:22px;
+        }
+        @media (max-width:700px){ .games-grid{ grid-template-columns:1fr; } }
 
-            margin: 0 auto;
+        .game-card{
+            position:relative;
+            display:flex; flex-direction:column; align-items:center; text-align:center;
+            padding:32px 26px 26px;
+            background:var(--paper);
+            border:1px solid var(--line);
+            border-radius:var(--radius-xl);
+            box-shadow:var(--shadow-sm);
+            overflow:hidden;
+            transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+        }
+        .game-card::before{
+            content:""; position:absolute; top:0; left:0; right:0; height:5px;
+            background:var(--grad-main);
+        }
+        .game-card:hover{ transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:transparent; }
 
-            padding: 25px 20px 60px;
+        .game-icon{
+            width:96px; height:96px; margin:12px auto 18px;
+            display:flex; align-items:center; justify-content:center;
+            border-radius:26px; font-size:3.4rem;
+            background:var(--grad-soft);
+            transition:transform .3s ease;
+        }
+        .game-card:hover .game-icon{ transform:scale(1.08) rotate(-3deg); }
 
+        .game-card h2{ font-size:1.5rem; margin-bottom:8px; }
+        .game-description{ max-width:280px; min-height:50px; color:var(--muted); font-size:.92rem; line-height:1.55; margin:0 auto 18px; }
+
+        .game-button{
+            display:inline-flex; align-items:center; justify-content:center;
+            min-width:140px; min-height:46px; margin-top:auto;
+            padding:11px 24px; border-radius:999px;
+            background:var(--grad-main); color:#fff;
+            font-weight:800; font-size:.92rem;
+            box-shadow:var(--shadow-glow);
+            transition:transform .2s ease;
+        }
+        .game-button:hover{ transform:scale(1.05); }
+
+        .game-card.locked{ opacity:.85; }
+        .game-card.locked .game-icon{ filter:grayscale(.5); }
+        .game-button.locked-button{
+            background:linear-gradient(135deg,#94a3b8,#64748b); box-shadow:none; cursor:default;
+        }
+        .game-button.locked-button:hover{ transform:none; }
+
+        .coming-soon{
+            position:absolute; top:18px; right:-38px;
+            padding:6px 48px; transform:rotate(35deg);
+            background:var(--ink); color:#fff;
+            font-size:.65rem; font-weight:800; letter-spacing:.06em;
         }
 
+        .games-footer{ text-align:center; margin-top:44px; color:var(--muted-soft); font-size:.9rem; }
 
-        /* =========================================================
-           CABECERA
-        ========================================================= */
-
-        .games-header {
-
-            text-align: center;
-
-            margin: 25px auto 45px;
-
-        }
-
-
-        .games-header h1 {
-
-            margin: 0;
-
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-
-            font-weight: 800;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #8b5cf6,
-                    #ec4899,
-                    #f59e0b
-                );
-
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-
-        }
-
-
-        .games-header .games-line {
-
-            width: 180px;
-
-            height: 5px;
-
-            margin: 12px auto 18px;
-
-            border-radius: 999px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #8b5cf6,
-                    #ec4899,
-                    #f59e0b
-                );
-
-            box-shadow:
-                0 0 15px rgba(236,72,153,.3);
-
-        }
-
-
-        .games-header p {
-
-            margin: 0 auto;
-
-            max-width: 650px;
-
-            color: var(--text-dim);
-
-            font-size: 1rem;
-
-            line-height: 1.6;
-
-        }
-
-
-        /* =========================================================
-           CONTENEDOR DE JUEGOS
-        ========================================================= */
-
-        .games-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 25px;
-
-        }
-
-
-        /* =========================================================
-           TARJETA
-        ========================================================= */
-
-        .game-card {
-
-            position: relative;
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            text-align: center;
-
-            min-height: 390px;
-
-            padding: 30px 25px 25px;
-
-            border-radius: 24px;
-
-            background: var(--surface);
-
-            border: 1px solid rgba(139,92,246,.2);
-
-            box-shadow:
-                var(--shadow-lg);
-
-            overflow: hidden;
-
-            transition:
-                transform .3s ease,
-                box-shadow .3s ease,
-                border-color .3s ease;
-
-        }
-
-
-        .game-card::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 6px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #8b5cf6,
-                    #ec4899,
-                    #f59e0b
-                );
-
-        }
-
-
-        .game-card:hover {
-
-            transform: translateY(-8px);
-
-            box-shadow:
-                0 16px 35px rgba(15,23,42,.16);
-
-            border-color:
-                rgba(139,92,246,.35);
-
-        }
-
-
-        /* =========================================================
-           ICONO
-        ========================================================= */
-
-        .game-icon {
-
-            width: 105px;
-            height: 105px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            margin: 15px auto 20px;
-
-            border-radius: 30px;
-
-            font-size: 4rem;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(139,92,246,.18),
-                    rgba(236,72,153,.18)
-                );
-
-            box-shadow:
-                0 8px 20px rgba(139,92,246,.25);
-
-            transition:
-                transform .3s ease;
-
-        }
-
-
-        .game-card:hover .game-icon {
-
-            transform:
-                scale(1.08)
-                rotate(-3deg);
-
-        }
-
-
-        /* =========================================================
-           TÍTULO
-        ========================================================= */
-
-        .game-card h2 {
-
-            margin: 0 0 10px;
-
-            font-size: 1.65rem;
-
-            font-weight: 800;
-
-            color: var(--text);
-
-        }
-
-
-        /* =========================================================
-           DESCRIPCIÓN
-        ========================================================= */
-
-        .game-description {
-
-            margin: 0 auto;
-
-            max-width: 280px;
-
-            min-height: 55px;
-
-            color: var(--text-dim);
-
-            font-size: .95rem;
-
-            line-height: 1.5;
-
-        }
-
-
-        /* =========================================================
-           BOTÓN
-        ========================================================= */
-
-        .game-button {
-
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            min-width: 145px;
-
-            min-height: 46px;
-
-            margin-top: auto;
-
-            padding: 10px 22px;
-
-            border-radius: 999px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #8b5cf6,
-                    #ec4899
-                );
-
-            color: white;
-
-            text-decoration: none;
-
-            font-weight: 800;
-
-            font-size: .95rem;
-
-            box-shadow:
-                0 6px 16px rgba(139,92,246,.3);
-
-            transition:
-                transform .2s ease,
-                box-shadow .2s ease;
-
-        }
-
-
-        .game-button:hover {
-
-            transform: scale(1.05);
-
-            box-shadow:
-                0 9px 22px rgba(139,92,246,.4);
-
-        }
-
-
-        /* =========================================================
-           TARJETAS BLOQUEADAS
-        ========================================================= */
-
-        .game-card.locked {
-
-            opacity: .82;
-
-        }
-
-
-        .game-card.locked .game-icon {
-
-            filter: grayscale(.45);
-
-        }
-
-
-        .game-button.locked-button {
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #94a3b8,
-                    #64748b
-                );
-
-            box-shadow:
-                none;
-
-            cursor: default;
-
-        }
-
-
-        .game-button.locked-button:hover {
-
-            transform: none;
-
-        }
-
-
-        /* =========================================================
-           ETIQUETA PRÓXIMAMENTE
-        ========================================================= */
-
-        .coming-soon {
-
-            position: absolute;
-
-            top: 18px;
-            right: -35px;
-
-            padding: 6px 45px;
-
-            transform: rotate(35deg);
-
-            background:
-                linear-gradient(135deg,#6366f1,#8b5cf6);
-
-            color: white;
-
-            font-size: .7rem;
-
-            font-weight: 800;
-
-            letter-spacing: .5px;
-
-        }
-
-
-        /* =========================================================
-           SEPARADOR
-        ========================================================= */
-
-        .games-footer {
-
-            text-align: center;
-
-            margin-top: 50px;
-
-        }
-
-
-        .games-footer p {
-
-            margin: 0;
-
-            color: var(--text-mute);
-
-            font-size: .9rem;
-
-        }
-
-
-        /* =========================================================
-           MÓVIL
-        ========================================================= */
-
-        @media (max-width: 800px) {
-
-            .games-page {
-
-                padding:
-                    15px
-                    12px
-                    40px;
-
-            }
-
-
-            .games-header {
-
-                margin:
-                    15px auto
-                    30px;
-
-            }
-
-
-            .games-header h1 {
-
-                font-size: 2.35rem;
-
-            }
-
-
-            .games-header .games-line {
-
-                width: 140px;
-
-                height: 4px;
-
-            }
-
-
-            .games-header p {
-
-                font-size: .9rem;
-
-                padding:
-                    0 10px;
-
-            }
-
-
-            .games-grid {
-
-                grid-template-columns: 1fr;
-
-                gap: 18px;
-
-            }
-
-
-            .game-card {
-
-                min-height: auto;
-
-                padding:
-                    28px
-                    20px
-                    22px;
-
-                border-radius: 20px;
-
-            }
-
-
-            .game-icon {
-
-                width: 90px;
-                height: 90px;
-
-                margin:
-                    10px auto
-                    18px;
-
-                font-size: 3.3rem;
-
-                border-radius: 25px;
-
-            }
-
-
-            .game-card h2 {
-
-                font-size: 1.45rem;
-
-            }
-
-
-            .game-description {
-
-                min-height: auto;
-
-                font-size: .9rem;
-
-                margin-bottom: 22px;
-
-            }
-
-
-            .game-button {
-
-                width: 100%;
-
-                max-width: 260px;
-
-                min-height: 48px;
-
-                font-size: .95rem;
-
-            }
-
-        }
-
-
-        /* =========================================================
-           MÓVILES PEQUEÑOS
-        ========================================================= */
-
-        @media (max-width: 400px) {
-
-            .games-header h1 {
-
-                font-size: 2rem;
-
-            }
-
-
-            .games-header p {
-
-                font-size: .85rem;
-
-            }
-
-
-            .game-card {
-
-                padding:
-                    25px
-                    16px
-                    20px;
-
-            }
-
-
-            .game-icon {
-
-                width: 80px;
-                height: 80px;
-
-                font-size: 2.9rem;
-
-            }
-
-
-            .game-card h2 {
-
-                font-size: 1.3rem;
-
-            }
-
+        @media (max-width:420px){
+            .game-icon{ width:80px; height:80px; font-size:2.8rem; }
         }
 
     </style>
 
 </head>
 
-
 <body>
 
-
-        <div id="menu-container"></div>
+    <div id="menu-container"></div>
 
     <script>
     fetch("menu.html")
@@ -619,195 +111,62 @@
         });
     </script>
 
-
-    <!-- =========================================================
-         CONTENIDO
-    ========================================================== -->
-
     <main class="games-page">
 
-
-        <!-- CABECERA -->
-
         <header class="games-header">
-
-            <h1>
-                🎮 Modo Juego
-            </h1>
-
+            <h1>🎮 Modo Juego</h1>
             <div class="games-line"></div>
-
-            <p>
-                Ponte a prueba, consigue puntos y demuestra
-                cuánto puedes aguantar.
-            </p>
-
+            <p>Ponte a prueba, consigue puntos y demuestra cuánto puedes aguantar.</p>
         </header>
-
-
-        <!-- =====================================================
-             JUEGOS
-        ====================================================== -->
 
         <section class="games-grid">
 
-
-            <!-- =================================================
-                 SNAKE
-            ================================================== -->
-
             <article class="game-card">
-
-                <div class="game-icon">
-                    🐍
-                </div>
-
-                <h2>
-                    Snake
-                </h2>
-
+                <div class="game-icon">🐍</div>
+                <h2>Snake</h2>
                 <p class="game-description">
-
-                    Come las manzanas, haz crecer
-                    la serpiente y consigue la mayor
-                    puntuación posible.
-
+                    Come las manzanas, haz crecer la serpiente y consigue la mayor puntuación posible.
                 </p>
-
-                <a
-                    href="juegos/snake.html"
-                    class="game-button">
-
-                    ▶ Jugar
-
-                </a>
-
+                <a href="juegos/snake.html" class="game-button">▶ Jugar</a>
             </article>
-
-        
-
-            <!-- =================================================
-                 PONG
-            ================================================== -->
 
             <article class="game-card locked">
-
-                <div class="coming-soon">
-                    PRÓXIMAMENTE
-                </div>
-
-                <div class="game-icon">
-                    🏓
-                </div>
-
-                <h2>
-                    Pong
-                </h2>
-
+                <div class="coming-soon">PRÓXIMAMENTE</div>
+                <div class="game-icon">🏓</div>
+                <h2>Pong</h2>
                 <p class="game-description">
-
-                    Devuelve la pelota con tu pala, supera a tu rival 
-                    y consigue llegar a 5 puntos antes que él.
-
+                    Devuelve la pelota con tu pala, supera a tu rival y consigue llegar a 5 puntos antes que él.
                 </p>
-
-                <span
-                    class="game-button locked-button">
-
-                    🔒 Próximamente
-
-                </span>
-
+                <span class="game-button locked-button">🔒 Próximamente</span>
             </article>
-
-            <!-- =================================================
-                 TETRIS
-            ================================================== -->
 
             <article class="game-card locked">
-
-                <div class="coming-soon">
-                    PRÓXIMAMENTE
-                </div>
-
-                <div class="game-icon">
-                    🧱
-                </div>
-
-                <h2>
-                    Tetris
-                </h2>
-
+                <div class="coming-soon">PRÓXIMAMENTE</div>
+                <div class="game-icon">🧱</div>
+                <h2>Tetris</h2>
                 <p class="game-description">
-
-                    Encaja las piezas, completa líneas
-                    y consigue la máxima puntuación.
-
+                    Encaja las piezas, completa líneas y consigue la máxima puntuación.
                 </p>
-
-                <span
-                    class="game-button locked-button">
-
-                    🔒 Próximamente
-
-                </span>
-
+                <span class="game-button locked-button">🔒 Próximamente</span>
             </article>
-
-
-            <!-- =================================================
-                 DRAGON RUNNER
-            ================================================== -->
 
             <article class="game-card locked">
-
-                <div class="coming-soon">
-                    PRÓXIMAMENTE
-                </div>
-
-                <div class="game-icon">
-                    🐉
-                </div>
-
-                <h2>
-                    Dragon Runner
-                </h2>
-
+                <div class="coming-soon">PRÓXIMAMENTE</div>
+                <div class="game-icon">🐉</div>
+                <h2>Dragon Runner</h2>
                 <p class="game-description">
-
-                    Corre, esquiva obstáculos y consigue
-                    llegar cada vez más lejos.
-
+                    Corre, esquiva obstáculos y consigue llegar cada vez más lejos.
                 </p>
-
-                <span
-                    class="game-button locked-button">
-
-                    🔒 Próximamente
-
-                </span>
-
+                <span class="game-button locked-button">🔒 Próximamente</span>
             </article>
-
 
         </section>
 
-
-        <!-- =====================================================
-             PIE
-        ====================================================== -->
-
         <footer class="games-footer">
-
-            <p>
-                🎯 Más juegos próximamente...
-            </p>
-
+            <p>🎯 Más juegos próximamente...</p>
         </footer>
 
-
     </main>
-
 
 </body>
 

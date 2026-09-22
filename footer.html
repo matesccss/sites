@@ -1,57 +1,30 @@
 <footer class="footer">
 
-    <!-- FRASE -->
-    <div class="footer-frase-area">
+    <div class="footer-inner">
 
-        <span class="footer-frase-mark">“</span>
+        <div class="footer-frase-area">
+            <span class="footer-frase-mark">“</span>
+            <p id="footer-text" class="footer-frase" aria-live="polite"></p>
+        </div>
 
-        <p id="footer-text"
-           class="footer-frase"
-           aria-live="polite"></p>
+        <div class="footer-line"></div>
 
-    </div>
+        <div class="footer-bottom">
 
+            <div class="footer-centro">
+                <span class="footer-centro-nombre">IES El Molinillo</span>
+                <span class="footer-centro-departamento">Departamento de Matemáticas</span>
+            </div>
 
-    <!-- LÍNEA -->
-    <div class="footer-line"></div>
-
-
-    <!-- PARTE INFERIOR -->
-    <div class="footer-bottom">
-
-        <div class="footer-centro">
-
-            <span class="footer-centro-nombre">
-                IES El Molinillo
-            </span>
-
-            <span class="footer-centro-departamento">
-                Departamento de Matemáticas
-            </span>
+            <div class="footer-derecha">
+                <span class="footer-year">© 2026</span>
+                <a href="#" id="footer-app" class="footer-app">📱 App</a>
+            </div>
 
         </div>
 
+        <div class="footer-final">Aprender · descubrir · avanzar</div>
 
-        <div class="footer-derecha">
-
-            <span class="footer-year">
-                © 2026
-            </span>
-
-            <a href="#"
-               id="footer-app"
-               class="footer-app">
-                📱 App
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- FIRMA -->
-    <div class="footer-final">
-        Aprender · descubrir · avanzar
     </div>
 
 </footer>
@@ -59,403 +32,82 @@
 
 <style>
 
-/* =========================================================
-   FOOTER — banda de cierre en tinta
-========================================================= */
+.footer{
+    position:relative;
+    margin-top:60px;
+    padding:44px 24px 24px;
+    background:linear-gradient(180deg,#0b1020 0%,#020617 100%);
+    color:#fff;
+    overflow:hidden;
+}
+.footer::before{
+    content:"";
+    position:absolute;
+    top:-160px; left:50%;
+    width:600px; height:280px;
+    transform:translateX(-50%);
+    background:radial-gradient(ellipse, rgba(124,58,237,.18), transparent 70%);
+    pointer-events:none;
+}
+.footer-inner{ position:relative; max-width:1000px; margin:0 auto; }
 
-.footer {
-
-    position: relative;
-
-    margin-top: 50px;
-
-    padding: 34px 35px 20px;
-
-    background: #0A0A09;
-
-    border-top: 1px solid rgba(244,243,236,.12);
-
-    color: #FAF6EE;
-
-    overflow: hidden;
-
+.footer-frase-area{
+    position:relative;
+    display:flex; justify-content:center; align-items:flex-start;
+    min-height:44px;
+    padding:0 34px;
+}
+.footer-frase-mark{
+    position:absolute; left:0; top:-14px;
+    font-family:Georgia, serif; font-size:3.4em; line-height:1;
+    color:#a78bfa; opacity:.4;
+}
+.footer-frase{
+    margin:0; max-width:820px; text-align:center;
+    font-size:.95em; line-height:1.6; font-style:italic; color:#cbd5e1;
 }
 
+.fade-out{ opacity:0; transform:translateY(7px); transition:opacity .45s ease, transform .45s ease; }
+.fade-in{ opacity:1; transform:translateY(0); transition:opacity .45s ease, transform .45s ease; }
 
-/* =========================================================
-   FRASE
-========================================================= */
-
-.footer-frase-area {
-
-    position: relative;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: flex-start;
-
-    max-width: 950px;
-
-    min-height: 42px;
-
-    margin: 0 auto;
-
-    padding: 0 30px;
-
+.footer-line{
+    height:1px; margin:22px auto 18px;
+    background:linear-gradient(90deg, transparent, rgba(148,163,184,.25), transparent);
 }
 
+.footer-bottom{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+}
+.footer-centro{ display:flex; flex-direction:column; gap:3px; }
+.footer-centro-nombre{ font-size:.85em; font-weight:700; color:#e2e8f0; }
+.footer-centro-departamento{ font-size:.72em; color:#94a3b8; }
 
-.footer-frase-mark {
+.footer-derecha{ display:flex; align-items:center; gap:16px; }
+.footer-year{ font-size:.72em; color:#94a3b8; }
 
-    position: absolute;
+.footer-app{
+    display:inline-flex; align-items:center; gap:6px;
+    padding:7px 14px;
+    border:1px solid rgba(167,139,250,.35);
+    border-radius:999px;
+    color:#c4b5fd;
+    font-size:.72em;
+    background:rgba(124,58,237,.08);
+    transition:background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.footer-app:hover{ background:rgba(124,58,237,.18); border-color:rgba(167,139,250,.6); transform:translateY(-1px); }
 
-    left: 0;
-    top: -12px;
-
-    font-family: 'Space Grotesk', Georgia, serif;
-
-    font-size: 3.5em;
-
-    line-height: 1;
-
-    color: #D7FF3F;
-
-    opacity: 0.9;
-
+.footer-final{
+    margin-top:20px; text-align:center;
+    font-size:.7em; color:#64748b; letter-spacing:.6px; opacity:.9;
 }
 
-
-.footer-frase {
-
-    margin: 0;
-
-    max-width: 850px;
-
-    text-align: center;
-
-    font-size: 0.95em;
-
-    line-height: 1.6;
-
-    font-style: italic;
-
-    color: #E5DFCF;
-
-}
-
-
-/* =========================================================
-   ANIMACIÓN
-========================================================= */
-
-.fade-out {
-
-    opacity: 0;
-
-    transform: translateY(7px);
-
-    transition:
-        opacity 0.45s ease,
-        transform 0.45s ease;
-
-}
-
-
-.fade-in {
-
-    opacity: 1;
-
-    transform: translateY(0);
-
-    transition:
-        opacity 0.45s ease,
-        transform 0.45s ease;
-
-}
-
-
-/* =========================================================
-   LÍNEA
-========================================================= */
-
-.footer-line {
-
-    width: 100%;
-
-    max-width: 1000px;
-
-    height: 2px;
-
-    margin: 20px auto 16px;
-
-    background:
-        repeating-linear-gradient(
-            90deg,
-            #FAF6EE 0 8px,
-            transparent 8px 16px
-        );
-
-    opacity: .3;
-
-}
-
-
-/* =========================================================
-   PARTE INFERIOR
-========================================================= */
-
-.footer-bottom {
-
-    width: 100%;
-
-    max-width: 1000px;
-
-    margin: 0 auto;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-}
-
-
-/* =========================================================
-   CENTRO
-========================================================= */
-
-.footer-centro {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 3px;
-
-}
-
-
-.footer-centro-nombre {
-
-    font-size: 0.82em;
-
-    font-weight: 700;
-
-    font-family: 'Space Grotesk', sans-serif;
-
-    color: #FAF6EE;
-
-}
-
-
-.footer-centro-departamento {
-
-    font-size: 0.68em;
-
-    color: #A69C82;
-
-}
-
-
-/* =========================================================
-   DERECHA
-========================================================= */
-
-.footer-derecha {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 18px;
-
-}
-
-
-.footer-year {
-
-    font-size: 0.68em;
-
-    color: #A69C82;
-
-}
-
-
-/* =========================================================
-   APP
-========================================================= */
-
-.footer-app {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 6px;
-
-    padding: 6px 13px;
-
-    border: 2px solid #D7FF3F;
-
-    border-radius: 20px;
-
-    color: #D7FF3F;
-
-    text-decoration: none;
-
-    font-size: 0.68em;
-    font-weight: 700;
-
-    background: transparent;
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease;
-
-}
-
-
-.footer-app:hover {
-
-    background: #D7FF3F;
-
-    color: #0A0A09;
-
-    transform: translateY(-1px);
-
-}
-
-
-/* =========================================================
-   FIRMA
-========================================================= */
-
-.footer-final {
-
-    margin-top: 18px;
-
-    text-align: center;
-
-    font-size: 0.68em;
-
-    color: #A69C82;
-
-    letter-spacing: 0.6px;
-
-    opacity: 0.9;
-
-}
-
-
-/* =========================================================
-   MÓVIL
-========================================================= */
-
-@media (max-width: 767px) {
-
-    .footer {
-
-        margin-top: 30px;
-
-        padding: 25px 18px 15px;
-
-    }
-
-
-    .footer-frase-area {
-
-        min-height: 52px;
-
-        padding: 0 20px;
-
-    }
-
-
-    .footer-frase {
-
-        font-size: 0.78em;
-
-        line-height: 1.5;
-
-    }
-
-
-    .footer-frase-mark {
-
-        left: -2px;
-
-        top: -8px;
-
-        font-size: 2.7em;
-
-    }
-
-
-    .footer-line {
-
-        margin: 15px auto 13px;
-
-    }
-
-
-    .footer-bottom {
-
-        align-items: flex-start;
-
-    }
-
-
-    .footer-centro-nombre {
-
-        font-size: 0.7em;
-
-    }
-
-
-    .footer-centro-departamento {
-
-        font-size: 0.58em;
-
-    }
-
-
-    .footer-derecha {
-
-        gap: 8px;
-
-    }
-
-
-    .footer-year {
-
-        font-size: 0.55em;
-
-    }
-
-
-    .footer-app {
-
-        padding: 5px 10px;
-
-        font-size: 0.58em;
-
-    }
-
-
-    .footer-final {
-
-        margin-top: 15px;
-
-        font-size: 0.55em;
-
-        letter-spacing: 0.4px;
-
-    }
-
+@media (max-width:700px){
+    .footer{ margin-top:40px; padding:32px 18px 18px; }
+    .footer-frase-area{ min-height:52px; padding:0 18px; }
+    .footer-frase{ font-size:.82em; }
+    .footer-frase-mark{ left:-2px; font-size:2.6em; }
+    .footer-bottom{ align-items:flex-start; }
 }
 
 </style>

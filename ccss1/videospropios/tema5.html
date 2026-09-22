@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../../icons/icon.png">
+
+    <title>CCSS I · Tema 5 · Vídeos</title>
+
+    <link rel="stylesheet" href="../../styles.css">
+
+</head>
+
+<body>
+
+    <div id="menu-container"></div>
+
+    <script>
+
+        fetch("../../menu.html")
+            .then(response => response.text())
+            .then(html => {
+
+                document.getElementById("menu-container").innerHTML = html;
+
+                document
+                    .querySelectorAll("#menu-container a[href]")
+                    .forEach(enlace => {
+
+                        const href = enlace.getAttribute("href");
+
+                        if (
+                            href &&
+                            !href.startsWith("http") &&
+                            !href.startsWith("#")
+                        ) {
+
+                            enlace.href = "../../" + href;
+
+                        }
+
+                    });
+
+            })
+            .catch(error => {
+
+                console.error("Error cargando el menú:", error);
+
+            });
+
+        </script>
+
+
+    <section class="videos-header">
+        <div class="videos-title">
+            <span class="videos-icon">▶</span>
+            <div>
+                <span class="videos-label">TEMA 5</span>
+                <h1>Tema 5</h1>
+            </div>
+        </div>
+        
+    </section>
+
+    <section class="videos-empty">
+        <div class="emoji">🎬</div>
+        <h3>Próximamente</h3>
+        <p>Todavía no hay vídeos disponibles en esta sección.</p>
+    </section>
+
+</body>
+
+</html>
